@@ -31,20 +31,11 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-base font-medium font-['Nunito'] hover:text-gray-300 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
           <Link
-            href="https://app.sumrlabs.com/sign-in"
+            href={links[2].href}
             className="px-5 py-2.5 bg-white rounded border border-[#2545d3] text-[#2545d3] text-base font-semibold font-['Nunito'] hover:bg-[#2545d3] hover:text-white transition-colors"
           >
-            Log in
+            Contact Us
           </Link>
         </div>
 

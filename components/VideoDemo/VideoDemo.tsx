@@ -80,7 +80,7 @@ const VideoDemo = () => {
               ))}
             </div>
           </div>
-          <motion.div className="w-full md:w-1/2" variants={videoVariants}>
+          <motion.div variants={videoVariants}>
             <div className="bg-[#e5f3fa] p-4 rounded-lg shadow-lg">
               <Image
                 className="w-full h-auto rounded"

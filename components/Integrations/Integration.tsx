@@ -75,7 +75,7 @@ const IntegrationComponent = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-5">
       <div className="max-w-full md:max-w-7xl mx-auto">
         <div className="grid grid-rows-1 md:grid-cols-2 gap- md:gap-8 items-center">
           <motion.div
@@ -117,17 +117,6 @@ const IntegrationComponent = () => {
               curate medical records efficiently.
               <br />
               Our healthcare AI tool seamlessly integrates with EHR systems.
-            </motion.div>
-            <motion.div
-              variants={childVariants}
-              className="flex gap-2 sm:text-xl md:text-2xl lg:text-3xl items-center text-xl"
-            >
-              <a href="/contact" className="text-blue-600 underline">
-                Contact us
-              </a>
-              <span className="w-44 text-[#818181] font-normal font-['Poppins']">
-                for integration.
-              </span>
             </motion.div>
           </motion.div>
         </div>
