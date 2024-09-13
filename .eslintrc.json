@@ -6,6 +6,7 @@
       { "argsIgnorePattern": "^_" }
     ],
     "@next/next/no-img-element": "warn",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "noImplicitAny": false
   }
 }
