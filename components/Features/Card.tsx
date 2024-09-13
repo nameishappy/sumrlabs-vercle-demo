@@ -7,10 +7,9 @@ import { useRef } from "react";
 
 type CardProps = {
   i: number;
-  title: string;
-  description: string;
-  src: string;
-  link: string;
+  heading: string;
+  imageUrl: string;
+  altText: string;
   color: string;
   range: [number, number];
   targetScale: number;
@@ -19,10 +18,9 @@ type CardProps = {
 
 const Card = ({
   i,
-  title,
-  description,
-  src,
-  link,
+  heading,
+  imageUrl,
+  altText,
   color,
   range,
   targetScale,
@@ -51,8 +49,8 @@ const Card = ({
       >
         <div className="lg:absolute lg:inset-y-0 lg:right-5 lg:top-5 lg:w-1/2">
           <Image
-            src={src}
-            alt={title}
+            src={imageUrl}
+            alt={altText}
             width={700}
             height={300}
             className="h-48 w-full rounded-md sm:h-72 md:h-96 lg:w-full"
@@ -63,7 +61,7 @@ const Card = ({
           <div className="lg:pr-8">
             <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
               <h2 className="lg:text-3xl md:text-2xl sm:text-xl font-normal font-['Poppins'] leading-8 tracking-tight text-gray-900">
-                {description}
+                {heading}
               </h2>
             </div>
           </div>

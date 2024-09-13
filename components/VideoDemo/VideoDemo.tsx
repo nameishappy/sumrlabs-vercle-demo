@@ -3,8 +3,9 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { DemoProps } from "@/types";
 
-const VideoDemo = () => {
+const VideoDemo = ({ demoData }: { demoData: DemoProps }) => {
   const features = [
     "AI-generated patient summaries",
     "Review essential medical terms",
@@ -61,7 +62,7 @@ const VideoDemo = () => {
         >
           <div className="w-full mx-auto mb-8 md:mb-0">
             <div className="space-y-6">
-              {features.map((feature, index) => (
+              {demoData.bulletPoints.map((feature, index) => (
                 <motion.div
                   key={index}
                   className="flex items-center space-x-4 md:w-100"
@@ -75,7 +76,9 @@ const VideoDemo = () => {
                       height={20}
                     />
                   </div>
-                  <span className="text-xl  text-black md:text-2xl lg:text-3xl">{feature}</span>
+                  <span className="text-xl  text-black md:text-2xl lg:text-3xl">
+                    {feature}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -84,10 +87,11 @@ const VideoDemo = () => {
             <div className="bg-[#e5f3fa] p-4 rounded-lg shadow-lg">
               <Image
                 className="w-full h-auto rounded"
-                src="/gifs/demo.gif"
+                src={demoData.integrationImages[0].imageUrl}
                 alt="Video demo placeholder"
                 width={30}
                 height={30}
+                unoptimized
               />
             </div>
           </motion.div>

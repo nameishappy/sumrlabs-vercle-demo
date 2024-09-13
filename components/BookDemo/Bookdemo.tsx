@@ -1,7 +1,8 @@
 import React from "react";
 import CTAButton from "../Home/CTAButton";
+import { CtaProps } from "@/types";
 
-const Bookdemo = () => {
+const Bookdemo = ({ ctaData }: { ctaData: CtaProps }) => {
   return (
     <div className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="mx-4 md:mx-8 lg:mx-16 bg-[#e5f3fa] rounded-lg shadow-md overflow-hidden">

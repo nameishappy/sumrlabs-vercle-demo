@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { IntegrationProps } from "@/types";
 
 // Define a type for the direction object
 interface Direction {
@@ -10,22 +11,30 @@ interface Direction {
   y: number;
 }
 
-const IntegrationComponent = () => {
+const IntegrationComponent = ({
+  integrationData,
+}: {
+  integrationData: IntegrationProps;
+}) => {
   const integrations = [
-    { name: "Epic", logo: "/logos/epic.png", direction: { x: -100, y: -100 } },
+    {
+      name: "Epic",
+      logo: integrationData.integrationImages[0].imageUrl,
+      direction: { x: -100, y: -100 },
+    },
     {
       name: "Cerner",
-      logo: "/logos/cerner.png",
+      logo: integrationData.integrationImages[1].imageUrl,
       direction: { x: 100, y: -100 },
     },
     {
       name: "Veradigm",
-      logo: "/logos/veradigm.png",
+      logo: integrationData.integrationImages[2].imageUrl,
       direction: { x: -100, y: 100 },
     },
     {
       name: "Athena Health",
-      logo: "/logos/athenahealth.png",
+      logo: integrationData.integrationImages[3].imageUrl,
       direction: { x: 100, y: 100 },
     },
   ];
@@ -113,10 +122,7 @@ const IntegrationComponent = () => {
               variants={childVariants}
               className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal font-['Poppins']"
             >
-              Sumr is an AI-powered health assistant for physicians, designed to
-              curate medical records efficiently.
-              <br />
-              Our healthcare AI tool seamlessly integrates with EHR systems.
+              {integrationData.heading}
             </motion.div>
           </motion.div>
         </div>

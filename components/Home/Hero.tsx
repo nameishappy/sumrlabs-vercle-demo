@@ -1,10 +1,20 @@
-"use client";
 import { content } from "@/locales/content";
 import CTAButton from "./CTAButton";
 import Image from "next/image";
 import Header from "../header/Header";
 import styles from "./Hero.module.css";
-const Hero = () => {
+import { getHero, getHomePage } from "@/sanity/lib/queries";
+
+interface HeroProps {
+  imageUrl: string;
+  altText: string;
+  heading: string;
+  tagline: string;
+}
+
+const Hero = async ({ heroData }: { heroData: HeroProps }) => {
+  const Hero: HeroProps = await getHero();
+
   return (
     <div className=" text-black">
       {/* <Header /> */}
@@ -12,11 +22,10 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium font-['SUSE'] leading-tight mb-6">
-              REVOLUTIONIZING DIAGNOSTICS WITH PRECISION SUMMARIZATION
+              {Hero.heading}
             </h1>
             <p className=" text-md sm:text-base font-normal font-['Poppins'] max-w-2xl mx-auto mb-8">
-              Empower your diagnostic process with AI-driven summaries that
-              distill complex medical data into actionable insights.
+              {Hero.tagline}
             </p>
           </div>
           <div className="flex justify-center">

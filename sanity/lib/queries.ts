@@ -3,6 +3,9 @@ import { groq } from 'next-sanity'
 
 
 
+
+
+
 export async function getPosts() {
   return client.fetch(
     groq`*[_type == "post"] {
@@ -51,10 +54,84 @@ export async function getPost(slug: string) {
     )
   }
 
+
+
+  export async function getHero() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "hero"][0]{
+        _type,
+        heading,
+        tagline,
+        "imageUrl": image.asset->url,
+        "altText": image.alt
+      }`
+    )
+  }
+
+  export async function getFeatures() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "feature"][0]{
+         _type,
+            "features": features[] {
+              heading,
+              "imageUrl": image.asset->url,
+              "altText": image.alt
+            }
+      }`
+    )
+  }
+
+  export async function getIntegration() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "integration"][0]{
+          _type,
+            heading,
+            subheading,
+            "integrationImages": integrationImages[] {
+              "imageUrl": asset->url,
+              alt
+            }
+      }`
+    )
+  }
+  export async function getCompliance() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "compliance"][0]{
+          _type,
+            heading,
+             "integrationImages": integrationImages[] {
+              "imageUrl": asset->url,
+              alt
+            }
+      }`
+    )
+  }
+  export async function getDemo() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "demo"][0]{
+          _type,
+            bulletPoints,
+            "integrationImages": integrationImages[] {
+              "imageUrl": asset->url,
+              alt
+            }
+      }`
+    )
+  }
+  export async function getCTA() {
+    return client.fetch(
+      groq`*[_type == "page"][0].pageBuilder[_type == "CTA"][0]{
+          _type,
+            heading,
+            buttonText
+      }`
+    )
+  }
+
   export async function getHomePage() {
     return client.fetch(
-      groq`*[_type == "page"]{
-        pageBuilder[]{
+      groq`*[_type == "page"][0]{
+        pageBuilder[] {
           _type == "hero" => {
             _type,
             heading,
@@ -102,6 +179,5 @@ export async function getPost(slug: string) {
           }
         }
       }`
-    )
+    );
   }
-

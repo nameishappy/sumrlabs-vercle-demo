@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import { Nunito } from "next/font/google"; // Updated import
 import Footer from "@/components/footer/Footer";
-import CursorProvider from "@/components/Theme/CursorProvider";
-import "@/styles/cursor.css";
 import "@/styles/bg.css";
 
 const nunito = Nunito({
@@ -35,7 +33,7 @@ export default function RootLayout({
         className={`${geistMono.variable} ${nunito.className} antialiased`}
         style={{ fontFamily: `'Nunito', sans-serif` }} // Explicitly set the font family as a fallback
       >
-        <Header/>
+        <Header />
         <main className="flex flex-col items-center">{children}</main>
         <Footer />
         {/* </div> */}

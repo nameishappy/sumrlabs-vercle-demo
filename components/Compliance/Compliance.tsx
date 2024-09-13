@@ -3,8 +3,13 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ComplianceProps } from "@/types";
 
-const IntegrationComponent = () => {
+const IntegrationComponent = ({
+  complianceData,
+}: {
+  complianceData: ComplianceProps;
+}) => {
   const integrations = [
     { name: "hippa", logo: "/logos/Hippa.png" },
     { name: "SOC", logo: "/logos/SOC.png" },
@@ -60,21 +65,19 @@ const IntegrationComponent = () => {
         >
           <motion.div className="space-y-4" variants={textVariants}>
             <div className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal font-['Poppins'] text-center">
-              Secure, Compliant, and Trusted Healthcare Solutions:
-              <br />
-              HIPAA and SOC 2 Certified for Ultimate Data Protection
+              {complianceData.heading}
             </div>
           </motion.div>
           <div className="grid md:grid-cols-2 sm:grid-cols-1 place-content-around place-items-center">
-            {integrations.map((integration) => (
+            {complianceData.integrationImages.map((integration) => (
               <motion.div
-                key={integration.name}
+                key={integration.imageUrl}
                 className="bg-[#e5f3fa] w-48 h-48 md:h-60 md:w-60 p-4 mb-8 rounded-lg flex items-center justify-center"
                 variants={logoVariants}
               >
                 <Image
-                  src={integration.logo}
-                  alt={`${integration.name} logo`}
+                  src={integration.imageUrl}
+                  alt={`${integration.altText} logo`}
                   width={150}
                   height={150}
                   objectFit="contain"
