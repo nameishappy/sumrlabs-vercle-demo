@@ -14,11 +14,17 @@ export const featureType = defineType({
           name: "feature",
           type: "object",
           title: "Feature",
+          
           fields: [
             defineField({
               name: "heading",
               type: "string",
               title: "Heading"
+            }),
+            defineField({
+              name: "color",
+              type: "string",
+              title: "Color"
             }),
             defineField({
               name: "image",

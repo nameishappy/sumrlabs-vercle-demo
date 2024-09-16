@@ -2,9 +2,9 @@
   position: relative;
   background-image: url("/bg.png");
   animation: slide 20s linear infinite;
-  box-shadow:
+  /* box-shadow:
     inset 0px -100px 100px -100px rgba(0, 0, 0, 0.7),
-    inset 0px 10px 100px 60px rgba(255, 255, 255, 0.9);
+    inset 0px 10px 100px 60px rgba(255, 255, 255, 0.9); */
   z-index: -1;
 }
 .bgAnimation::before {
@@ -17,9 +17,9 @@
   background-image: url("/bg.png");
   background-repeat: repeat;
   animation: slide 20s linear infinite;
-  box-shadow:
+  /* box-shadow:
     inset 0px -100px 100px -100px rgba(0, 0, 0, 0.7),
-    inset 0px 10px 100px 60px rgba(255, 255, 255, 0.9);
+    inset 0px 10px 100px 60px rgba(255, 255, 255, 0.9); */
   z-index: -1;
 }
 

@@ -40,7 +40,6 @@ export default function Demo({ featureData }: { featureData: FeatureProps }) {
               key={index}
               i={index}
               {...feature}
-              color="#e4f2fa"
               progress={scrollYProgress}
               range={[index * 0.25, 1]}
               targetScale={targetScale}

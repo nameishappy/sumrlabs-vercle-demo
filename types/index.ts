@@ -7,6 +7,7 @@ export interface Feature{
    heading:string
    imageUrl:string
     altText:string
+    color:string
 }
 
 export interface IntegrationProps{

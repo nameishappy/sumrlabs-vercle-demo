@@ -18,13 +18,13 @@ const Hero = async ({ heroData }: { heroData: HeroProps }) => {
   return (
     <div className=" text-black">
       {/* <Header /> */}
-      <section className="bg- w-full px-4 sm:px-6 lg:px-8 py-16 md:py-24 min-h-[50vh] md:min-h-[90vh] relative  overflow-hidden">
+      <section className="bg- bgAnimation w-full px-4 sm:px-6 lg:px-8 py-16 md:py-24 min-h-[50vh] md:min-h-[90vh] relative  overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium font-['SUSE'] leading-tight mb-6">
+            <h1 className="w-5xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-700 leading-tight mb-6">
               {Hero.heading}
             </h1>
-            <p className=" text-md sm:text-base font-normal font-['Poppins'] max-w-2xl mx-auto mb-8">
+            <p className=" text-md sm:text-base font-normal  max-w-2xl mx-auto mb-8">
               {Hero.tagline}
             </p>
           </div>
@@ -44,7 +44,7 @@ const Hero = async ({ heroData }: { heroData: HeroProps }) => {
             height={400}
           />
         </div> */}
-        <div className="z-[-1] absolute -top-56 w-fit h-fit">
+        {/* <div className="z-[-1] absolute -top-56 w-fit h-fit">
           <Image
             src="/Mask-group.png"
             alt="Decorative hexagon"
@@ -52,7 +52,7 @@ const Hero = async ({ heroData }: { heroData: HeroProps }) => {
             width={400}
             height={400}
           />
-        </div>
+        </div> */}
 
         {/* Right Hexagon - Half Hidden */}
         {/* <div className="absolute z-0 top-0 right-0 transform translate-x-1/2 -translate-y-1/4 w-1/2 max-w-md">

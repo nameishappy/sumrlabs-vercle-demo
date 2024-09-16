@@ -144,7 +144,8 @@ export async function getPost(slug: string) {
             "features": features[] {
               heading,
               "imageUrl": image.asset->url,
-              "altText": image.alt
+              "altText": image.alt,
+              color
             }
           },
           _type == "integration" => {

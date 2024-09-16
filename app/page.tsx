@@ -23,7 +23,7 @@ export default async function Home() {
     (section: any) => section._type === "compliance"
   );
   const ctaData = pageBuilder.find((section: any) => section._type === "CTA");
-  // console.log(ctaData, "integrationData");
+  // console.log(featureData, "integrationData");
   return (
     <div className="mr-0">
       <Hero heroData={heroData} />

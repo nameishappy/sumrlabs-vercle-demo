@@ -26,16 +26,28 @@ const Header = () => {
     <header className="text-center py-5 px-4 sm:px-6 lg:px-8">
       <nav className="relative z-50 flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex items-center">
-          <Image src="/Logo-sumr.png" alt="SUMR Logo" width={144} height={56}  />
+          <Image src="/Logo-sumr.png" alt="SUMR Logo" width={120} height={48} />
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-3">
           <Link
-            href={links[2].href}
-            className="px-5 py-2.5 bg-white rounded border border-[#2545d3] text-[#2545d3] text-base font-semibold font-['Nunito'] hover:bg-[#2545d3] hover:text-white transition-colors"
+            href={links[0].href}
+            className="text-gray-600 hover:text-gray-800"
           >
-            Contact Us
+            Contact us
+          </Link>
+          <Link
+            href={links[0].href}
+            className="px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50"
+          >
+            Log in
+          </Link>
+          <Link
+            href={links[0].href}
+            className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          >
+            Get started
           </Link>
         </div>
 

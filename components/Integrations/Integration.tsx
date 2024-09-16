@@ -120,7 +120,7 @@ const IntegrationComponent = ({
           >
             <motion.div
               variants={childVariants}
-              className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal font-['Poppins']"
+              className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal "
             >
               {integrationData.heading}
             </motion.div>

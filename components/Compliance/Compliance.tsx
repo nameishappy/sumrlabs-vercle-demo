@@ -64,7 +64,7 @@ const IntegrationComponent = ({
           animate={inView ? "visible" : "hidden"}
         >
           <motion.div className="space-y-4" variants={textVariants}>
-            <div className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal font-['Poppins'] text-center">
+            <div className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal text-start">
               {complianceData.heading}
             </div>
           </motion.div>
