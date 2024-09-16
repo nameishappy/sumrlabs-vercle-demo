@@ -181,3 +181,21 @@ export async function getPost(slug: string) {
       }`
     );
   }
+
+
+  export async function getTermsOfUsePageData() {
+    return client.fetch(
+      groq`*[_type == "termsOfUse"]{
+        title,
+        content
+      }`
+    )
+  }
+  export async function getPrivacyPolicyPageData() {
+    return client.fetch(
+      groq`*[_type == "privacyPolicy"]{
+        title,
+        content
+      }`
+    )
+  }
