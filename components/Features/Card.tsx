@@ -58,7 +58,7 @@ const Card = ({
             objectFit="contain"
           />
         </div>
-        <div className="relative py-6 lg:py-16 px-4 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
+        <div className="relative lg:py-16 lg:pt-40 px-4 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
           <div className="lg:pr-8">
             <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
               <h2 className="lg:text-3xl md:text-3xl sm:text-2xl font-normal font-['Poppins'] leading-8 tracking-tight text-gray-900">
