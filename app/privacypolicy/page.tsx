@@ -4,9 +4,8 @@ import React from 'react';
 
 const page = async () => {
   const policyPageData = await getPrivacyPolicyPageData();
-  const policyTitle = policyPageData[0]?.title || 'Privacy Policy'; // Fallback in case title is not available
-  const policyContent = policyPageData[0]?.content[0]?.children[0]?.text || 'No privacy policy content available'; // Fallback in case content is not available
-  console.log(policyContent); // For debugging purposes
+  const policyTitle = policyPageData[0]?.title || 'Privacy Policy';
+  const policyContent = policyPageData[0]?.content[0]?.children[0]?.text || 'No privacy policy content available';
 
   return (
     <>
@@ -17,7 +16,7 @@ const page = async () => {
       </div>
 
       <div className="w-full max-w-[1310px] text-black text-base sm:text-lg md:text-xl font-medium font-['Nunito'] mx-auto px-4 sm:px-6 md:px-8">
-        <p>{policyContent}</p>
+        <div dangerouslySetInnerHTML={{ __html: policyContent }} />
       </div>
 
       <div className="w-full max-w-[1313px] h-auto md:h-[314px] p-6 md:pl-[84px] md:pr-[87px] md:pt-[108px] md:pb-[116px] bg-[#e5f3fa] rounded-[15px] flex justify-center items-center my-[10vh]">
