@@ -51,8 +51,8 @@ const VideoDemo = ({ demoData }: { demoData: DemoProps }) => {
   };
 
   return (
-    <div className="w-full bg-white">
-      <div className="container mx-auto px-10 py-12 md:py-24">
+    <div className="w-full bg-white px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto py-12 md:py-20">
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between"
           ref={ref}
@@ -84,7 +84,7 @@ const VideoDemo = ({ demoData }: { demoData: DemoProps }) => {
             </div>
           </div>
           <motion.div variants={videoVariants}>
-            <div className="bg-[#e5f3fa] p-4 rounded-lg shadow-lg">
+            <div className="bg-purple-custom p-4 rounded-lg shadow-lg">
               <Image
                 className="w-full h-auto rounded"
                 src={demoData.integrationImages[0].imageUrl}

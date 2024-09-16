@@ -31,7 +31,7 @@ export default function Demo({ featureData }: { featureData: FeatureProps }) {
   }, []);
 
   return (
-    <main className="relative mt-16">
+    <main className="relative mt-16 px-4 sm:px-6 lg:px-8">
       <div className="" ref={container}>
         {features.map((feature, index) => {
           const targetScale = 1 - (features.length - index) * 0.05;

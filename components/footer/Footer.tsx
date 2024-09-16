@@ -7,19 +7,19 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Footer = () => {
-  const links=[
+  const links = [
     {
-      name:"term-of-services",
-      href:"/termsofuse"
+      name: "term-of-services",
+      href: "/termsofuse",
     },
     {
-      name:"Privacy Policy",
-      href:"/privacypolicy"
+      name: "Privacy Policy",
+      href: "/privacypolicy",
     },
-  ]
+  ];
   const router = useRouter();
 
-  const handleClick = (x:number) => {
+  const handleClick = (x: number) => {
     // Navigate to the page with `termofservices` appended to the URL
     router.push(links[x].href);
   };
@@ -51,7 +51,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-200 relative text-black py-8 px-4 md:px-8 lg:px-16  overflow-hidden">
+    <footer className="bg-blue-btn relative text-white py-8 px-4 md:px-8 lg:px-16  overflow-hidden">
       <motion.div
         ref={ref}
         className="container mx-auto w-full z-10"
@@ -70,25 +70,24 @@ const Footer = () => {
             />
 
             <motion.p className="text-sm mb-4" variants={itemVariants}>
-             @2024 sumrlabs.inc
+              @2024 sumrlabs.inc
             </motion.p>
           </motion.div>
           <div className="grid grid-cols-2 z-20 place-content-center place-items-start w-100 gap-12">
             <Link href={links[0].href}>
-            <motion.div variants={itemVariants} >
-              <motion.h3 className="mb-4" variants={itemVariants}>
-              Terms of Use
-              </motion.h3>
-            </motion.div>
+              <motion.div variants={itemVariants}>
+                <motion.h3 className="mb-4" variants={itemVariants}>
+                  Terms of Use
+                </motion.h3>
+              </motion.div>
             </Link>
             <Link href={links[1].href}>
-            <motion.div variants={itemVariants} >
-              <motion.h3 className="mb-4" variants={itemVariants}>
-              Privacy Policy
-              </motion.h3>
-            </motion.div>
+              <motion.div variants={itemVariants}>
+                <motion.h3 className="mb-4" variants={itemVariants}>
+                  Privacy Policy
+                </motion.h3>
+              </motion.div>
             </Link>
-          
           </div>
         </div>
         <motion.div
@@ -100,7 +99,7 @@ const Footer = () => {
           </motion.p>
         </motion.div>
       </motion.div>
-      
+
       <div className="absolute z-0 bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2">
         <Image
           className="animate-spin-slow"

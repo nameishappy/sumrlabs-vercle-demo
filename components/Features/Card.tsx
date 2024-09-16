@@ -37,7 +37,7 @@ const Card = ({
   return (
     <div
       ref={container}
-      className="cardContainer flex items-center justify-center w-100 m-10 lg:h[90vh] md:h-[70vh] sticky top-0"
+      className="cardContainer flex items-center justify-center w-100 lg:h[90vh] md:h-[70vh] sticky top-0"
     >
       <motion.div
         className="card flex flex-col w-100 md:h-[50vh] lg:h-[80vh]  relative rounded-3xl p-5"

@@ -55,16 +55,16 @@ const IntegrationComponent = ({
 
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-9xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center"
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
           <motion.div className="space-y-4" variants={textVariants}>
-            <div className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal text-start">
+            <div className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal md:text-start text-center">
               {complianceData.heading}
             </div>
           </motion.div>
@@ -72,7 +72,7 @@ const IntegrationComponent = ({
             {complianceData.integrationImages.map((integration) => (
               <motion.div
                 key={integration.imageUrl}
-                className="bg-[#e5f3fa] w-48 h-48 md:h-60 md:w-60 p-4 mb-8 rounded-lg flex items-center justify-center"
+                className="bg-purple-custom w-48 h-48 md:h-60 md:w-60 p-4 mb-8 rounded-lg flex items-center justify-center"
                 variants={logoVariants}
               >
                 <Image

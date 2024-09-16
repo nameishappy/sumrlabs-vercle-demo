@@ -84,7 +84,7 @@ const IntegrationComponent = ({
   };
 
   return (
-    <div className="p-5">
+    <div className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-full md:max-w-7xl mx-auto">
         <div className="grid grid-rows-1 md:grid-cols-2 gap- md:gap-8 items-center">
           <motion.div
@@ -97,7 +97,7 @@ const IntegrationComponent = ({
             {integrations.map((integration) => (
               <motion.div
                 key={integration.name}
-                className="bg-[#e5f3fa] h-[200px] md:h-100 md:w-100  p-4 mb-8 rounded-lg flex items-center justify-center"
+                className="bg-purple-custom h-[200px] md:h-100 md:w-100  p-4 mb-8 rounded-lg flex items-center justify-center"
                 variants={itemVariants}
                 custom={integration.direction}
               >
@@ -120,7 +120,7 @@ const IntegrationComponent = ({
           >
             <motion.div
               variants={childVariants}
-              className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal "
+              className="text-[#2b2b2b] text-xl md:text-2xl lg:text-3xl font-normal text-center md:text-start "
             >
               {integrationData.heading}
             </motion.div>

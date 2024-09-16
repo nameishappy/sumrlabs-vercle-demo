@@ -39,13 +39,13 @@ const Header = () => {
           </Link>
           <Link
             href={links[0].href}
-            className="px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50"
+            className="px-4 py-2 text-blue-btn border border-blue-btn rounded-md hover:bg-blue-50"
           >
             Log in
           </Link>
           <Link
             href={links[0].href}
-            className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+            className="px-4 py-2 text-white bg-blue-btn rounded-md hover:bg-blue-700"
           >
             Get started
           </Link>
