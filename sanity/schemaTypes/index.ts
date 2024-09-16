@@ -11,7 +11,9 @@ import { integrationType } from './integrationType'
 import { demoType } from './demoType'
 import { complianceType } from './complianceType'
 import { ctaType } from './ctaType'
+import { privacyPolicyType } from './privacyPolicyTypes'
+import { termsOfUseType } from './termsOfUseType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType,pageType,heroType,featureType,integrationType,demoType,complianceType,ctaType],
+  types: [blockContentType, categoryType, postType, authorType,pageType,heroType,featureType,integrationType,demoType,complianceType,ctaType,privacyPolicyType,termsOfUseType],
 }
