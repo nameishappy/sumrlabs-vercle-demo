@@ -54,8 +54,8 @@ const IntegrationComponent = ({
   };
 
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-screen py-10 md:py-20 flex flex-col justify-center">
+      <div className="max-w-full md:max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center"
           ref={ref}
@@ -87,7 +87,7 @@ const IntegrationComponent = ({
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

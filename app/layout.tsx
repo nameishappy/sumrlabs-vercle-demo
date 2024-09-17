@@ -36,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${manrope.className} antialiased bg-[#fff]`}>
-        <Header />
+        <div className="bgAnimation">
+          <Header />
+        </div>
         <main className="flex flex-col items-center">{children}</main>
         <Footer />
         {/* </div> */}

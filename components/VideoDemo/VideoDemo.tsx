@@ -51,16 +51,16 @@ const VideoDemo = ({ demoData }: { demoData: DemoProps }) => {
   };
 
   return (
-    <div className="w-full bg-white px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto py-12 md:py-20">
+    <section className="w-screen py-10 md:py-20 flex flex-col justify-center">
+      <div className="max-w-full md:max-w-7xl mx-auto py-12 md:py-20">
         <motion.div
-          className="flex flex-col md:flex-row items-center justify-between"
+          className="flex flex-col md:flex-row items-center justify-center md:justify-between"
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <div className="w-full mx-auto mb-8 md:mb-0">
+          <div className="w-full mx-auto mb-8 md:mb-0 ">
             <div className="space-y-6">
               {demoData.bulletPoints.map((feature, index) => (
                 <motion.div
@@ -97,7 +97,7 @@ const VideoDemo = ({ demoData }: { demoData: DemoProps }) => {
           </motion.div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
