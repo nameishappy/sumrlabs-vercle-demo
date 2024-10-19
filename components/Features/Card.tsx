@@ -1,75 +1,83 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion"; // Import MotionValue
-import { useRef } from "react";
+import { Feature } from "@/types";
+import { CheckCheck } from "lucide-react";
 
-type CardProps = {
-  i: number;
-  heading: string;
-  imageUrl: string;
-  altText: string;
-  color: string;
-  range: [number, number];
-  targetScale: number;
-  progress: MotionValue<number>; // Set the correct type for progress
-};
+interface CardProps {
+  card: Feature;
+  index: number;
+  total: number;
+  scrollYProgress: any;
+}
 
-const Card = ({
-  i,
-  heading,
-  imageUrl,
-  altText,
-  color,
-  range,
-  targetScale,
-  progress,
-}: CardProps) => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "start start"],
-  });
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]); // image zoom out animation
-  const scale = useTransform(progress, range, [1, targetScale]); // stacking effect
+export const Card = ({ card, index, total, scrollYProgress }: CardProps) => {
+  const cardHeight = 100; // Adjust this value based on your card's height
+  const stackOffset = 10; // Adjust this value to control the stacking effect
+
+  const yOffset = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, index * stackOffset]
+  );
 
   return (
-    <div
-      ref={container}
-      className="cardContainer flex items-center justify-center w-100 lg:h[90vh] md:h-[70vh] sticky top-0"
+    <motion.li
+      className="sticky top-24"
+      style={{
+        // height: `${cardHeight}vh`,
+        // marginBottom: `${stackOffset}vh`,
+        paddingTop: "40px",
+      }}
     >
       <motion.div
-        className="card flex flex-col w-100 md:h-[50vh] lg:h-[80vh]  relative rounded-3xl p-5"
+        className={`text-black w-5/6 mx-auto min-h-[65vh] rounded-3xl overflow-hidden flex items-center px-3 md:px-10 pt-10 md:pt-0  justify-center`}
         style={{
-          scale,
-          backgroundColor: color,
-          top: `calc(-5vh + ${i * 25}px)`,
+          y: yOffset,
+          backgroundColor: card.color,
+          position: "relative",
+          zIndex: total - index,
         }}
       >
-        <div className=" lg:absolute px-5 lg:px-0 lg:right-5 lg:bottom-0 lg:w-1/2">
-          <Image
-            src={imageUrl}
-            // layout="fill"
-            width={750}
-            height={375}
-            alt={altText}
-            className="rounded-md"
-            objectFit="contain"
-          />
-        </div>
-        <div className="relative lg:py-16 lg:pt-40 px-4 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
-          <div className="lg:pr-8">
-            <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
-              <h2 className="lg:text-3xl md:text-3xl sm:text-2xl font-normal font-['Poppins'] leading-8 tracking-tight text-gray-900">
-                {heading}
-              </h2>
+        <div className="flex flex-col w-full md:flex-row justify-between">
+          <div className="flex flex-1 justify-center flex-col lg:gap-6 gap-3 items-canter">
+            <div className="text-xl font-light md:text-2xl lg:text-3xl mb-2">
+              {card.heading}
+            </div>
+            <p className="mb-4 text-base font-extralight">{card.description}</p>
+            <div className="mb-4 flex flex-col">
+              {card.bullets.map((bullet, index) => (
+                <span
+                  key={index}
+                  className={`sm:w-max w-full h-14 sm:h-full text-black text-xs md:text-sm px-3 py-2 rounded-full mr-2 mb-2 items-center flex gap-2`}
+                  style={{ backgroundColor: card.bulletBgcolor }}
+                >
+                  <CheckCheck color="#333333" width="18px" />
+                  {bullet}
+                </span>
+              ))}
+            </div>
+            <a
+              href={"https://tally.so/r/wg49NK"}
+              className="pt-4 text-base hover:underline"
+            >
+              Learn More →
+            </a>
+          </div>
+          <div className="flex flex-1 flex-wrap md:justify-end justify-center items-center content-start gap-2 w-full h-full">
+            <div className="relative flex justify-center items-center w-full aspect-square">
+              <Image
+                src={card.imageUrl}
+                height={300}
+                width={400}
+                alt="Agent"
+                style={{ objectFit: "contain" }}
+              />
             </div>
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.li>
   );
 };
-
-export default Card;

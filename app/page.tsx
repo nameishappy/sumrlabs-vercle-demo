@@ -1,37 +1,42 @@
 import Hero from "@/components/Home/Hero";
-import IntegrationComponent from "@/components/Integrations/Integration";
 import Compliance from "@/components/Compliance/Compliance";
-import Bookdemo from "@/components/BookDemo/Bookdemo";
-import VideoDemo from "@/components/VideoDemo/VideoDemo";
 import Features from "@/components/Features/Features";
 import { getHomePage } from "@/sanity/lib/queries";
+import InfiniteText from "@/components/InfiniteText/InfiniteText";
+import CtaSection from "@/components/CtaSection/CtaSection";
+import Animae from "@/components/Animae";
+import Header from "@/components/header/Header";
 
 export default async function Home() {
   const homepageContent = await getHomePage();
-  // console.log(homepageContent, "homepageContent");
 
   const { pageBuilder } = homepageContent;
+
   const heroData = pageBuilder.find((section: any) => section._type === "hero");
   const featureData = pageBuilder.find(
     (section: any) => section._type === "feature"
   );
-  const integrationData = pageBuilder.find(
-    (section: any) => section._type === "integration"
-  );
-  const demoData = pageBuilder.find((section: any) => section._type === "demo");
   const complianceData = pageBuilder.find(
     (section: any) => section._type === "compliance"
   );
-  const ctaData = pageBuilder.find((section: any) => section._type === "CTA");
-  // console.log(featureData, "integrationData");
+
+  // console.log(heroData);
+
   return (
-    <div className="mr-0">
-      <Hero heroData={heroData} />
-      <Features featureData={featureData} />
-      <IntegrationComponent integrationData={integrationData} />
-      <VideoDemo demoData={demoData} />
-      <Compliance complianceData={complianceData} />
-      <Bookdemo ctaData={ctaData} />
-    </div>
+    <>
+      <Header />
+      <div className="w-screen flex flex-col gap-5 ">
+        <div className="w-full">
+          <Hero heroData={heroData} />
+          <Animae />
+          <InfiniteText />
+        </div>
+        <Features featureData={featureData} />
+        <div className="my-5 py-8 md:mx-10 mx-5 px-4 md:px-5 sm:px-4 flex justify-center items-center">
+          <Compliance complianceData={complianceData} />
+        </div>
+        <CtaSection />
+      </div>
+    </>
   );
 }

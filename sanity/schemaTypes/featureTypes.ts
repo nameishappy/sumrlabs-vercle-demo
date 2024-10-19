@@ -22,9 +22,36 @@ export const featureType = defineType({
               title: "Heading"
             }),
             defineField({
+              name: "link",
+              type: "string",
+              title: "Link"
+            }),
+            defineField({
               name: "color",
               type: "string",
-              title: "Color"
+              title: "color"
+            }),
+            defineField({
+              name: "bulletBgcolor",
+              type: "string",
+              title: "bulletBgcolor"
+            }),
+            defineField({
+              name: "description",
+              type: "text",
+              title: "Description"
+            }),
+            defineField({
+              name:"bullets",
+              type:"array",
+              title:"Bullets",
+              of: [
+                defineField({
+                  name: "bullet",
+                  type: "string",
+                  title: "Bullet"
+                })
+              ]
             }),
             defineField({
               name: "image",

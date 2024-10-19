@@ -16,6 +16,10 @@ export const pageType = defineType({
           type: 'hero',
         }),
         defineArrayMember({
+          name: 'infiniteText',
+          type: 'infiniteText',
+        }),
+        defineArrayMember({
           name:"feature",
           type:"feature"
         }),

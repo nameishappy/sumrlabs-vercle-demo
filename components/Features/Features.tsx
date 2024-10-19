@@ -1,52 +1,36 @@
 "use client";
-import Card from "./Card";
-import { projects } from "./data";
-import { useScroll, MotionValue } from "framer-motion"; // Explicit import for MotionValue type
-import { useEffect, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
+
+import React, { useRef } from "react";
+import { useScroll } from "framer-motion";
 import { FeatureProps } from "@/types";
+import { Card } from "./Card";
 
 export default function Demo({ featureData }: { featureData: FeatureProps }) {
-  // Type ref for HTMLDivElement
   const { features } = featureData;
-  const container = useRef<HTMLDivElement>(null);
-
-  // Explicitly type scrollYProgress
-  const { scrollYProgress }: { scrollYProgress: MotionValue<number> } =
-    useScroll({
-      target: container,
-      offset: ["start start", "end end"],
-    });
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    // Explicitly type 'time' as DOMHighResTimeStamp
-    function raf(time: DOMHighResTimeStamp) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
+  const containerRef = useRef<HTMLUListElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
   return (
-    <main className="relative w-screen py-10 md:py-20 flex flex-col justify-center">
-      <div className="" ref={container}>
-        {features.map((feature, index) => {
-          const targetScale = 1 - (features.length - index) * 0.05;
-          return (
+    <div className=" w-full min-h-screen">
+      <main className="w-full md:px-10  px-1 mx-auto">
+        <ul
+          ref={containerRef}
+          className="list-none grid grid-cols-1 gap-8 md:gap-16 py-10"
+        >
+          {features.map((feature, index) => (
             <Card
               key={index}
-              i={index}
-              {...feature}
-              progress={scrollYProgress}
-              range={[index * 0.25, 1]}
-              targetScale={targetScale}
+              card={feature}
+              index={index}
+              total={features.length}
+              scrollYProgress={scrollYProgress}
             />
-          );
-        })}
-      </div>
-    </main>
+          ))}
+        </ul>
+      </main>
+    </div>
   );
 }

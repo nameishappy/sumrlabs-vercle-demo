@@ -1,22 +1,33 @@
+import { ArrowBigLeft, ArrowRight, ArrowRightFromLine } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { MoveRight } from "lucide-react";
 
-const CTAButton = () => {
+interface CTAButtonProps {
+  color: string; // Background color will be passed as a prop
+  text_color?: string;
+  classNames?: string;
+}
+
+const CTAButton: React.FC<CTAButtonProps> = ({
+  color,
+  text_color,
+  classNames,
+}) => {
   return (
-    <Link href={"https://tally.so/r/wg49NK"}>
-      <div className="w-full mx-5 py-5  relative bg-blue-btn rounded-md flex items-center justify-center">
-        <div className="gap-1 flex items-center justify-center">
-          <div className="text-center text-white text-xl md:text-2xl font-medium ">
-            Book Demo
-          </div>
-          <div className="w-[34px] h-[34px] relative">
-            <Image
-              alt={"rocket"}
-              width={34}
-              height={34}
-              src="/icons/rocket.svg"
-            />
-          </div>
+    <Link href={"https://tally.so/r/wg49NK"} passHref>
+      <div
+        className={`w-full md:px-4 md:py-4 p-2   relative rounded-md flex items-center justify-center ${classNames}`}
+        style={{ backgroundColor: color }} // Inline style for dynamic background color
+      >
+        <div
+          className={`gap-1 w-max flex items-center justify-center text-base`}
+        >
+          {/* Change text color to black if background is white */}
+          <div className={`text-center  ml-1`}>Book Demo</div>
+          <ArrowRight
+          // className={` ${text_color ? `text-[${text_color}]` : "text-[#333333]"}`}
+          />
         </div>
       </div>
     </Link>

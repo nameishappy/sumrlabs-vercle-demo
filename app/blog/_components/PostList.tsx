@@ -27,7 +27,7 @@ const PostCard = ({ post }: { post: Post }) => {
               src={urlForImage(post.mainImage).url()}
               alt={post.mainImage.alt || "Post image"}
               layout="fill"
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
             />
           </div>
         )}

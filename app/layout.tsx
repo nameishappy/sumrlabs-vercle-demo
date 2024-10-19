@@ -2,19 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/header/Header";
-import { Nunito, Cedarville_Cursive, Manrope } from "next/font/google"; // Updated import
+import { Manrope } from "next/font/google"; // Updated import
 import Footer from "@/components/footer/Footer";
-import "@/styles/bg.css";
-
-const nunito = Nunito({
-  weight: ["400", "700"], // specify the weights you want to use
-  subsets: ["latin"], // choose subsets like 'latin' or 'cyrillic'
-});
+import { GoogleTagManager } from "@next/third-parties/google"; // Import Google Tag Manager
 
 const manrope = Manrope({
-  weight: ["700", "400"], // specify the weights you want to use
+  weight: ["700", "400"],
   subsets: ["latin"],
-  // choose subsets like 'latin' or 'cyrillic'
 });
 
 const geistMono = localFont({
@@ -24,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Sumrlabs",
-  description: "Sumrlabs",
+  title: "SUM+R | AI-Powered Clinical workflow automation",
+  description: "SUM+R | AI-Powered Clinical workflow automation",
 };
 
 export default function RootLayout({
@@ -35,14 +29,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${manrope.className} antialiased bg-[#fff]`}>
-        <div className="bgAnimation">
-          <Header />
-        </div>
+      <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0EY0YGJX8K"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0EY0YGJX8K');
+            `,
+          }}
+        />
+      </head>
+      {/* Google Tag Manager */}
+      <GoogleTagManager gtmId="GTM-WP5FML9M" />{" "}
+      {/* Replace GTM-XYZ with your actual GTM ID */}
+      <body className={`${manrope.className} antialiased`}>
         <main className="flex flex-col items-center">{children}</main>
         <Footer />
-        {/* </div> */}
       </body>
     </html>
   );
 }
+
+export const revalidate = 10;

@@ -13,7 +13,9 @@ import { complianceType } from './complianceType'
 import { ctaType } from './ctaType'
 import { privacyPolicyType } from './privacyPolicyTypes'
 import { termsOfUseType } from './termsOfUseType'
+import { infiniteTextType } from './infiniteText'
+import { usecaseType } from './usecaseTypes'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType,pageType,heroType,featureType,integrationType,demoType,complianceType,ctaType,privacyPolicyType,termsOfUseType],
+  types: [blockContentType, categoryType, postType, authorType,pageType,heroType,featureType,integrationType,demoType,complianceType,ctaType,privacyPolicyType,termsOfUseType,infiniteTextType,usecaseType],
 }

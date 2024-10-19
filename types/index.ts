@@ -7,7 +7,11 @@ export interface Feature{
    heading:string
    imageUrl:string
     altText:string
-    color:string
+      description:string
+      bullets:string[]
+      link:string
+      color:string
+      bulletBgcolor: string;
 }
 
 export interface IntegrationProps{

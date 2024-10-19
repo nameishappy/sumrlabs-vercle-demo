@@ -3,13 +3,13 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
   const links = [
     {
-      name: "term-of-services",
+      name: "Terms of Use",
       href: "/termsofuse",
     },
     {
@@ -17,12 +17,7 @@ const Footer = () => {
       href: "/privacypolicy",
     },
   ];
-  const router = useRouter();
 
-  const handleClick = (x: number) => {
-    // Navigate to the page with `termofservices` appended to the URL
-    router.push(links[x].href);
-  };
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -51,76 +46,79 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-blue-btn relative text-white py-8 px-4 md:px-8 lg:px-16  overflow-hidden">
-      <motion.div
-        ref={ref}
-        className="container mx-auto w-full z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <motion.div className="mb-6 md:mb-0" variants={itemVariants}>
-            <Image
-              src="/Logo-sumr.png"
-              alt="SUMR Logo"
-              width={144}
-              height={56}
-              objectFit="contain"
-            />
-
-            <motion.p className="text-sm mb-4" variants={itemVariants}>
-              @2024 sumrlabs.inc
-            </motion.p>
-          </motion.div>
-          <div className="grid grid-cols-2 z-20 place-content-center place-items-start w-100 gap-12">
-            <Link href={links[0].href}>
-              <motion.div variants={itemVariants}>
-                <motion.h3 className="mb-4" variants={itemVariants}>
-                  Terms of Use
-                </motion.h3>
-              </motion.div>
-            </Link>
-            <Link href={links[1].href}>
-              <motion.div variants={itemVariants}>
-                <motion.h3 className="mb-4" variants={itemVariants}>
-                  Privacy Policy
-                </motion.h3>
-              </motion.div>
-            </Link>
-          </div>
-        </div>
+    <div className=" w-3/4 mt-10 my-5 mx-auto sm:px-4 py-8 ">
+      <footer className=" relative text-black  overflow-hidden">
         <motion.div
-          className="border-t border-blue-500 mr-0 ml-0 pt-8"
-          variants={itemVariants}
+          ref={ref}
+          className="container mx-auto w-full z-10 "
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
         >
-          <motion.p className="text-sm text-center" variants={itemVariants}>
-            &copy; Sum+r. All rights reserved.
-          </motion.p>
+          {/* Footer Top Section */}
+          <div className="flex flex-col justify-between  mb-8 space-y-6 md:space-y-0">
+            <motion.div
+              className="flex ml-1 flex-col md:items-start items-center gap-3 mb-6 md:mb-0 text-center md:text-left z-10"
+              variants={itemVariants}
+            >
+              <Link href={"/"}>
+                <Image
+                  src="/sumr-logo-dark.png"
+                  alt="SUMR Logo"
+                  width={80}
+                  height={64}
+                  layout="intrinsic"
+                  objectFit="contain"
+                />
+              </Link>
+              <div className="relative md:w-2/6 font-medium">
+                <a href="mailto:hello@sumrlabs.com">care@sumrlabs.com</a>
+                {/* <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-2 pr-10 text-gray-700 bg-gray-100 rounded-md focus:outline-none"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-500 focus:outline-none"
+                >
+                  <ArrowRight size={20} />
+                </button> */}
+              </div>
+            </motion.div>
+
+            {/* Links Section */}
+          </div>
+
+          {/* Footer Bottom Section */}
+          <motion.div
+            className="border-t flex flex-col md:flex-row items-center justify-between border-black pt-8"
+            variants={itemVariants}
+          >
+            {/* Copyright Information */}
+            <motion.div
+              className="text-sm mb-4 md:mb-0 text-center md:text-left"
+              variants={itemVariants}
+            >
+              <p>&copy;2024 Sumr Labs Inc. All rights reserved.</p>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-6 md:gap-12 text-center md:text-left z-10">
+              {links.map((link, index) => (
+                <Link href={link.href} key={index}>
+                  <motion.div variants={itemVariants}>
+                    <motion.h3 className="text-sm" variants={itemVariants}>
+                      {link.name}
+                    </motion.h3>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-
-      <div className="absolute z-0 bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2">
-        <Image
-          className="animate-spin-slow"
-          src="/Hexagon.png"
-          alt="Decorative hexagon"
-          width={400}
-          height={400}
-        />
-      </div>
-
-      {/* Top-right Hexagon */}
-      <div className="absolute z-0 top-0 right-0 transform translate-x-1/3 -translate-y-1/2">
-        <Image
-          className="animate-spin-slow"
-          src="/Hexagon.png"
-          alt="Decorative hexagon"
-          width={400}
-          height={400}
-        />
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
 

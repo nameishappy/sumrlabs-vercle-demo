@@ -1,3 +1,4 @@
+import InfiniteText from '@/components/InfiniteText/InfiniteText'
 import { client } from './client'
 import { groq } from 'next-sanity'
 
@@ -66,8 +67,23 @@ export async function getPost(slug: string) {
         "altText": image.alt
       }`
     )
-  }
 
+  }
+  //Infinite Text Moving
+  export async function getInfiniteMoving() {
+      return client.fetch(
+        groq`
+          *[_type == "page"][0].pageBuilder[_type == "infiniteText"][0]{
+            text1,
+            text2,
+            text3,
+          }
+        `
+      );
+ 
+  }
+  
+  
   export async function getFeatures() {
     return client.fetch(
       groq`*[_type == "page"][0].pageBuilder[_type == "feature"][0]{
@@ -139,13 +155,23 @@ export async function getPost(slug: string) {
             "imageUrl": image.asset->url,
             "altText": image.alt
           },
+          _type == "infiniteText" => {
+            _type,
+            text1,
+            text2,
+            text3
+          },
           _type == "feature" => {
             _type,
             "features": features[] {
               heading,
               "imageUrl": image.asset->url,
               "altText": image.alt,
-              color
+              description,
+              "bullets": bullets[],
+              link,
+              color,
+              bulletBgcolor
             }
           },
           _type == "integration" => {
@@ -200,3 +226,47 @@ export async function getPost(slug: string) {
       }`
     )
   }
+  // export async function getUseCaseData() {
+  //   return client.fetch(
+  //     groq`*[_type == "useCase"]{
+  //       title,
+  //       mainHeading,
+  //       content[] {
+  //         points {
+  //           pointHeading,
+  //           subtext
+  //         }
+  //       }
+  //     }`
+  //   )
+  // }
+
+  export async function getUseCaseData() {
+    return client.fetch(
+      groq`*[_type == "useCase"]{
+        title,
+        mainHeading,
+        content[] {
+          "contentItem": {
+            "points": points {
+              pointHeading,
+              subtext
+            }
+          }
+        }
+      }`
+    )
+  }
+
+  // export async function getUseCaseData() {
+  //   return client.fetch(
+  //     groq`*[_type == "useCase"]{
+  //       "allFields": {
+  //         title,
+  //         mainHeading,
+  //         content
+  //       },
+  //       "rawContent": content
+  //     }`
+  //   )
+  // }

@@ -6,7 +6,14 @@ export const heroType = defineType({
   type: 'object',
   title: 'Hero',
   fields: [
-    defineField({
+    {
+      title: "Seo",
+      name: "seo",
+      type: "seoMetaFields",
+    },
+    defineField(
+      
+      {
       name: 'heading',
       type: 'string',
     }),
