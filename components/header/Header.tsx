@@ -68,14 +68,6 @@ const Header = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-5">
             <Link
-              href={links[0].href}
-              className={`px-1 py-2 cursor-pointer ${
-                isVisible ? "text-[#333333]" : "text-white"
-              } rounded-md `}
-            >
-              Contact us
-            </Link>
-            <Link
               href={links[2].href}
               className={`px-1 py-2 cursor-pointer ${
                 isVisible ? "text-[#333333]" : "text-white"
@@ -90,6 +82,14 @@ const Header = () => {
               } rounded-md `}
             >
               Use case
+            </Link>
+            <Link
+              href={links[0].href}
+              className={`px-1 py-2 cursor-pointer ${
+                isVisible ? "text-[#333333]" : "text-white"
+              } rounded-md `}
+            >
+              Contact us
             </Link>
             <Link
               href={links[1].href}
