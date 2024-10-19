@@ -14,6 +14,14 @@ const links = [
     label: "Get Started",
     href: "https://tally.so/r/wg49NK",
   },
+  {
+    label: "team",
+    href: "/team",
+  },
+  {
+    label: "use-cases",
+    href: "/use-cases",
+  },
 ];
 
 const Header = () => {
@@ -61,19 +69,45 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-5">
             <Link
               href={links[0].href}
-              className={`px-1 py-2 cursor-pointer ${isVisible ? "text-[#333333]" : "text-white"} rounded-md `}
+              className={`px-1 py-2 cursor-pointer ${
+                isVisible ? "text-[#333333]" : "text-white"
+              } rounded-md `}
             >
               Contact us
             </Link>
             <Link
+              href={links[2].href}
+              className={`px-1 py-2 cursor-pointer ${
+                isVisible ? "text-[#333333]" : "text-white"
+              } rounded-md `}
+            >
+              Team
+            </Link>
+            <Link
+              href={links[3].href}
+              className={`px-1 py-2 cursor-pointer ${
+                isVisible ? "text-[#333333]" : "text-white"
+              } rounded-md `}
+            >
+              Use case
+            </Link>
+            <Link
               href={links[1].href}
-              className={`px-4 py-2 ${isVisible ? "text-[#343CED] outline outline-[#343CED] bg-[#FBFBFE]" : "text-white outline outline-white"} rounded-md`}
+              className={`px-4 py-2 ${
+                isVisible
+                  ? "text-[#343CED] outline outline-[#343CED] bg-[#FBFBFE]"
+                  : "text-white outline outline-white"
+              } rounded-md`}
             >
               Sign in
             </Link>
             <Link
               href={links[1].href}
-              className={`px-4 py-2 ${isVisible ? "text-[#FAFAFA] outline bg-[#343CED]" : "text-[#343CED] outline outline-white bg-[#FAFAFA]"} rounded-md`}
+              className={`px-4 py-2 ${
+                isVisible
+                  ? "text-[#FAFAFA] outline bg-[#343CED]"
+                  : "text-[#343CED] outline outline-white bg-[#FAFAFA]"
+              } rounded-md`}
             >
               Get Started
             </Link>
@@ -83,7 +117,9 @@ const Header = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`text-white focus:outline-none ${isVisible ? "text-[#343CED]" : "text-[#FFF]"}`}
+              className={`text-white focus:outline-none ${
+                isVisible ? "text-[#343CED]" : "text-[#FFF]"
+              }`}
             >
               <Menu
                 className={`h-6 w-6 ${isVisible ? "text-black" : "text-white"}`}
