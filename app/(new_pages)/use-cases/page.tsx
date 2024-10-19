@@ -24,9 +24,9 @@ const page = async () => {
           {useCaseContent.mainHeading}
         </div>
         <div className="flex flex-col gap-4">
-          {useCaseContent.content.map((useCase) => {
+          {useCaseContent.content.map((useCase, index) => {
             return (
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1" key={index}>
                 <h3 className="text-2xl ">{useCase.point}</h3>
                 <div className="">{useCase.point}</div>
               </div>
